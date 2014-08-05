@@ -43,3 +43,12 @@ So run a container named **isso** like that:
     docker run -d -p 8080:8080 --name isso -v /srv/isso/:/opt/isso -v /srv/issodb/:/opt/issodb isso:latest /usr/bin/supervisord
 
 Now you can access to isso via the **8080** port. To test it go to: [http://localhost:8080/demo](http://localhost:8080/demo).
+
+# How to relaunch the server after some changes?
+
+Just relaunch the docker file:
+
+    docker stop isso
+    docker start isso
+
+It will do the trick.
