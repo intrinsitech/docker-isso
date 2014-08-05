@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Update list of packages
 RUN apt-get update
 # Install needed packages
-RUN apt-get install -y python-dev python-pip sqlite3 supervisor openssh-server
+RUN apt-get install -y python-dev python-pip sqlite3 build-essential supervisor openssh-server vim
 
 # Configuration
 RUN mkdir -p /var/run/sshd
