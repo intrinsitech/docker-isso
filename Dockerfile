@@ -16,7 +16,7 @@ RUN mkdir -p /var/run/supervisor
 RUN echo 'root:isso' |chpasswd # change default root password
 
 # Create directory to contains all Isso config + DB
-RUN mkdir -p /opt/isso 
+RUN mkdir -p /opt/isso
 
 # Install isso
 RUN pip install isso
@@ -25,9 +25,9 @@ RUN pip install isso
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Add isso configuration
-ADD isso.conf /etc/isso/isso.conf
+ADD isso.conf /opt/isso/isso.conf
 
-VOLUME ["/opt/issodb", "/etc/isso"]
+VOLUME ["/opt/issodb", "/opt/isso"]
 
 # Let some ports to be accessible if user add -p option to docker run
 EXPOSE 8080 22

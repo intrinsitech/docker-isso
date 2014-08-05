@@ -4,12 +4,40 @@ Fetch this repository, then:
 
     docker build -t isso:latest .
 
-Now you need to open ports and mount volume to your container, for an example create this directory:
+You now have a kind of template to generate Isso containers.
 
-  * /srv/isso: to contain the configuration file (so that it could be changed/adapted) and the SQLite DB file
+# Prerequisites
 
-Then run the container named **isso**:
+Now you need some directories so that you can customize your Isso application (change server config, etc.): 
 
-    docker run -d -p :8080 --name isso -v /srv/isso/:/opt/isso isso:latest /usr/bin/supervisord
+  * /srv/isso: to contain the configuration file (NB: docker user should have **read access** on this directory)
+  * /srv/issodb: to contain the SQLite DB files (NB: docker user should have **write access** on this directory)
 
-Now you can access to isso via the **8080** port.
+You should copy **isso.conf** into */srv/isso* directory and **configure it** (Cf [Official server configuration](http://posativ.org/isso/docs/configuration/server/)):
+
+  * add a host, for an example ```host = http://my.blog.com/```
+  * change notify method by smtp: ```notify = smtp```
+  * then adapt smtp section to have something like that:
+
+    username = myId
+    password = my2longPassword
+    host = smtp.fai.tld
+    port = 587
+    security = starttls
+    to = theAddressMail@youwant.tld
+    from = "Name Surname" <takeme@domaine.tld>
+
+You can now create the container to use this configuration file.
+
+# Create a container
+
+To run the container properly, you just need to define:
+
+  * ports (to access to Isso)
+  * volume (to link directories that Isso asked for and those you define on your local machine)
+
+So run a container named **isso** like that: 
+
+    docker run -d -p 8080:8080 --name isso -v /srv/isso/:/opt/isso -v /srv/issodb/:/opt/issodb isso:latest /usr/bin/supervisord
+
+Now you can access to isso via the **8080** port. To test it go to: [http://localhost:8080/demo](http://localhost:8080/demo).
