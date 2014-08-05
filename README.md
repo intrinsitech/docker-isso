@@ -15,9 +15,11 @@ Now you need some directories so that you can customize your Isso application (c
 
 You should copy **isso.conf** into */srv/isso* directory and **configure it** (Cf [Official server configuration](http://posativ.org/isso/docs/configuration/server/)):
 
-  * add a host, for an example ```host = http://my.blog.com/```
-  * change notify method by smtp: ```notify = smtp```
-  * then adapt smtp section to have something like that:
+  * add a host, for an example `host = http://my.blog.com/`
+  * change notify method by smtp: `notify = smtp`
+  * then adapt smtp section to have the right configuration for your own email address
+
+For an example:
 
     username = myId
     password = my2longPassword
