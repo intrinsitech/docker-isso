@@ -40,7 +40,7 @@ To run the container properly, you just need to define:
 
 So run a container named **isso** like that: 
 
-    docker run -d -p 8080:8080 --name isso -v /srv/isso/:/opt/isso -v /srv/issodb/:/opt/issodb isso:latest /usr/bin/supervisord
+    docker run -d -p 8080:8080 --name isso -v /srv/isso/:/opt/isso -v /srv/issodb/:/opt/issodb isso:latest
 
 Now you can access to isso via the **8080** port. To test it go to: [http://localhost:8080/demo](http://localhost:8080/demo).
 
