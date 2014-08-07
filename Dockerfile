@@ -1,4 +1,4 @@
-# VERSION 0.0
+# VERSION 0.1
 FROM ubuntu:12.04
 MAINTAINER Olivier Dossmann, <olivier+dockerfile@dossmann.net>
 
