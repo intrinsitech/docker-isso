@@ -52,3 +52,19 @@ Just relaunch the docker file:
     docker start isso
 
 It will do the trick.
+
+# Changelog
+
+## Version 0.1
+
+gunicorn + gevent + Isso
+
+As previous version makes 65 requests per second I change used tool to have more response time.
+
+Now it makes 300 requests per second.
+
+## Version 0.0
+
+supervisord + Isso
+
+65 requests/second
