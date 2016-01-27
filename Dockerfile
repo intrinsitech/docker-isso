@@ -1,28 +1,12 @@
-# VERSION 0.1
-FROM ubuntu:12.04
+# VERSION 0.2
+FROM python:3.3
 MAINTAINER Olivier Dossmann, <olivier+dockerfile@dossmann.net>
-
-# To avoid problems with Dialog and curses wizards
-ENV DEBIAN_FRONTEND noninteractive
-
-# Update list of packages
-RUN apt-get update
-# Install needed packages
-RUN apt-get install -y python-dev python-pip sqlite3 build-essential #supervisor openssh-server vim
-
-# Configuration
-#RUN mkdir -p /var/run/sshd
-#RUN echo 'root:isso' |chpasswd # change default root password
 
 # Create directory to contains all Isso config + DB
 RUN mkdir -p /opt/isso
 
 # Install isso
-RUN pip install isso
-# Install gevent
-RUN pip install gevent
-# Install gunicorn
-RUN pip install gunicorn
+RUN pip install isso==0.9.10 gevent==1.1rc3 gunicorn
 
 # Add isso configuration
 ADD isso.conf /opt/isso/isso.conf

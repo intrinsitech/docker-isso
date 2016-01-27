@@ -53,7 +53,17 @@ Just relaunch the docker file:
 
 It will do the trick.
 
+# Integration
+
+Pay attention to [configure your web server as explained in Isso documentation](https://posativ.org/isso/docs/quickstart/#running-isso) if it didn't remains on the same domain.
+
 # Changelog
+
+## Version 0.2
+
+Use official python docker image to install Isso.
+
+As [an issue occurs on gevent with gunicorn on Python 3](https://github.com/gevent/gevent/issues/515), I use a specific rc version of gevent.
 
 ## Version 0.1
 
