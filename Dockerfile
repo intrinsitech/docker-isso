@@ -6,7 +6,7 @@ MAINTAINER Olivier Dossmann, <olivier+dockerfile@dossmann.net>
 RUN mkdir -p /opt/isso
 
 # Install isso
-RUN pip install gevent==1.1rc3 gunicorn
+RUN pip install isso gevent==1.1rc3 gunicorn
 
 # Add isso configuration
 ADD isso.conf /opt/isso/isso.conf
